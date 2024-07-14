@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+// import DeskTopMenu from "./DeskTopMenu";
+// import MobileMenu from "./MobileMenu";
 
 const NavBar = () => {
   const { data: session } = useSession();
@@ -71,6 +73,7 @@ const NavBar = () => {
           </>
         )}
       </div>
+      {/* <DeskTopMenu providers={providers} session={session}/> */}
 
       {/* Mobile Navigation */}
       <div className='sm:hidden flex relative'>
@@ -132,6 +135,7 @@ const NavBar = () => {
           </>
         )}
       </div>
+      {/* <MobileMenu providers={providers} session={session}/> */}
     </nav>
   );
 };

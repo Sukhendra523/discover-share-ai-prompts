@@ -1,11 +1,13 @@
+'use client'
+
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
 import SigninButton from "./SigninButton";
 
 
-const DeskTopMenu = () => {
-  const {data : session } = useSession();
+const DeskTopMenu = ({providers,session}) => {
+  // const {data : session } = useSession();
 
   return (
     <div className="sm:flex hidden">
@@ -30,7 +32,7 @@ const DeskTopMenu = () => {
         </Link>
       </div>
     ) : (
-      <SigninButton />
+      <SigninButton providers={providers}/>
     )}
   </div>
   )

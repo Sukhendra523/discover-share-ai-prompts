@@ -4,18 +4,18 @@ import { useEffect, useState } from "react"
 import { signIn, getProviders , } from 'next-auth/react';
 
 
-const SigninButton = () => {
-    const [providers, setProviders] = useState({})
-    useEffect(()=>{
-        (async ()=>{
-            const response = await getProviders();
-            console.log(" >>>>",response);
-            setProviders(response);
-        })()
+const SigninButton = ({providers}) => {
+    // const [providers, setProviders] = useState({})
+    // useEffect(()=>{
+    //     (async ()=>{
+    //         const response = await getProviders();
+    //         console.log(" >>>>",response);
+    //         setProviders(response);
+    //     })()
 
-    },[]);
+    // },[]);
   return (
-    Object.values(providers).map((provider)=>{
+    providers && Object.values(providers).map((provider)=>{
         <button 
             type="button"
             key={provider.name}

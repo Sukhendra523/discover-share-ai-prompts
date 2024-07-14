@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
@@ -5,9 +7,9 @@ import Image from "next/image";
 import SigninButton from './SigninButton';
 
 
-const MobileMenu = () => {
+const MobileMenu = ({providers,session}) => {
   const [toggleDropdown, setToggleDropdown] = useState(false);
-  const {data: session} = useSession()
+  // const {data: session} = useSession()
   return (
          <div className="sm:hidden flex relative">
          {session?.user ? (
@@ -50,7 +52,7 @@ const MobileMenu = () => {
              )}
            </div>
          ) : (
-           <SigninButton />
+           <SigninButton providers={providers} />
          )}
        </div>
   )

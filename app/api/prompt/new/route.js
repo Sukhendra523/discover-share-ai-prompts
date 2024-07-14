@@ -2,13 +2,13 @@ import Prompt from "@models/prompt";
 import { connectToDB } from "@utils/database";
 
 export const POST = async (request) => {
-  const { creater, prompt, tag } = await request.json();
+  const { creator, prompt, tag } = await request.json();
 
   try {
     await connectToDB();
 
     const newPrompt = new Prompt({
-      creater,
+      creator,
       prompt,
       tag,
     });
