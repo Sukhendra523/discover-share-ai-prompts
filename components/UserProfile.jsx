@@ -10,9 +10,8 @@ const UserProfile = ({ name, desc, data, handleEdit, handleDelete }) => {
 
         <PromptCardList
           data={data}
-        //   handleTagClick={handleTagClick}
-          handleEdit={() => handleEdit && handleEdit(post)}
-          handleDelete={() => handleDelete && handleDelete(post)}
+          handleEdit={handleEdit}
+          handleDelete={handleDelete}
         />
     </section>
   );

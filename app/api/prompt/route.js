@@ -1,7 +1,7 @@
 import Prompt from "@models/prompt"
 import { connectToDB } from "@utils/database";
 
-export const GET = async (req)=> {
+export const GET = async (_req)=> {
     try {
         await connectToDB();
         const prompts = await Prompt.find({}).populate('creator');
@@ -10,7 +10,7 @@ export const GET = async (req)=> {
         });
     } catch (error) {
         return new Response("Failed to fetch data",{
-            status:200
+            status:500
         });
     }
 }
